@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.bridgelabz.todoapp.UserControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in com.bridgelabz.todoapp.UserControllerTest
+verifyRegistrationUser(com.bridgelabz.todoapp.UserControllerTest)  Time elapsed: 0.01 s  <<< FAILURE!
+java.lang.AssertionError: No value at JSON path "$.message"
+	at com.bridgelabz.todoapp.UserControllerTest.verifyRegistrationUser(UserControllerTest.java:44)
+Caused by: java.lang.IllegalArgumentException: json can not be null or empty
+	at com.bridgelabz.todoapp.UserControllerTest.verifyRegistrationUser(UserControllerTest.java:44)
+
