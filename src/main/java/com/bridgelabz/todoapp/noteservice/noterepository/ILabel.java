@@ -15,13 +15,14 @@ import com.bridgelabz.todoapp.noteservice.notemodel.LabelDTO;
  *        </p>
  */
 @Repository
-public interface ILabel extends MongoRepository<Label,String> {
+public interface ILabel extends MongoRepository<Label, String> {
 
-void deleteByLabelName(String labelName);
+	void deleteByLabelName(String labelName);
 
-/**
- * @param label
- */
-void save(LabelDTO label);
+	/**
+	 * @param label
+	 */
+	void save(LabelDTO label);
+	public Label findByLabelName(String labelname); 
 
 }

@@ -20,7 +20,7 @@ public class Note implements Serializable {
 
 	@Id
 	private String note;
-	private String id;
+	private String user;
 	private String title;
 	private String description;
 	public boolean isTrashed = false;
@@ -74,12 +74,20 @@ public class Note implements Serializable {
 		this.note = note;
 	}
 
-	public String getId() {
+/*	public String getId() {
 		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
+	}*/
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 	public String getTitle() {

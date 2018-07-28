@@ -25,15 +25,16 @@ public interface INoteDao extends MongoRepository<Note, String> {
 	Note findByNote(String id);
 
 	/**
-	 * @param user
+	 * @param string
 	 * @return
 	 */
-	List<Note> findById(Optional<User> user);
+	public List<Note> findByUser(String string);
 
-
-
-	
-	
-	
+	/**
+	 * @param user
+	 * @param labelName
+	 * @return
+	 */
+	List<Note> findByUser(Optional<User> user, String labelName);
 
 }

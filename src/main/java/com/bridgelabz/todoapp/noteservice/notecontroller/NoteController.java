@@ -188,7 +188,25 @@ public class NoteController {
 		LOG.info("pinned a note");
 		return new ResponseEntity<>("pinned a note", HttpStatus.OK);
 	}
-
+	/**
+	 * @param noteId
+	 * @param token
+	 * @return
+	 * @throws TodoException
+	 *             <p>
+	 *             <b>Method to make note as unimportant</b>
+	 *             </p>
+	 */
+	@PutMapping(value = "/unpinnote")
+	public ResponseEntity<String> unpinNote(@RequestParam("noteId") String noteId, @RequestParam("token") String token)
+			throws TodoException {
+		LOG.info(REQ_ID);
+		LOG.info("making note unpinned");
+		noteService.pinNote(noteId, token);
+		LOG.info(REs_ID);
+		LOG.info("made a note as unimportant");
+		return new ResponseEntity<>("made a note as unimportant", HttpStatus.OK);
+	}
 	/**
 	 * @param noteId
 	 * @param token
@@ -317,7 +335,7 @@ public class NoteController {
 	 *             <b>Method to add a label to note</b>
 	 *             </p>
 	 */
-	@PostMapping(value = "/addlabel")
+	@PostMapping(value = "/addlabeltonote")
 	public ResponseEntity<String> addLabelToNote(@RequestParam("noteId") String noteId,
 			@RequestParam("labelName") String labelName, @RequestHeader String token) throws TodoException {
 		LOG.info(REQ_ID);
@@ -327,5 +345,46 @@ public class NoteController {
 		LOG.info("added a label");
 		return new ResponseEntity<>("added a label", HttpStatus.OK);
 	}
+	/**
+	 * @param noteId
+	 * @param labelName
+	 * @param token
+	 * @return
+	 * @throws TodoException
+	 */
+	@DeleteMapping(value = "/removelabel")
+	public ResponseEntity<String> removelabel(@RequestParam("labelName") String labelName, @RequestHeader String token) throws TodoException {
+		LOG.info(REQ_ID);
+		LOG.info("removing  a label from note");
+		noteService.removeLabel(labelName, token);
+		LOG.info(REs_ID);
+		LOG.info("removed a label");
+		return new ResponseEntity<>("removed a label", HttpStatus.OK);
+	}
 
+	/**
+	 * @param noteId
+	 * @param labelName
+	 * @param token
+	 * @return
+	 * @throws TodoException
+	 */
+	@DeleteMapping(value = "/removelabelfromnote")
+	public ResponseEntity<String> removelabelFromNote(@RequestParam("labelName") String labelName, @RequestHeader String token) throws TodoException {
+		LOG.info(REQ_ID);
+		LOG.info("removing  a label from note");
+		noteService.removeLabelfromNote(labelName, token);
+		LOG.info(REs_ID);
+		LOG.info("removed a label");
+		return new ResponseEntity<>("removed a label", HttpStatus.OK);
+	}
+	@PutMapping(value = "/renamelabel")
+	public ResponseEntity<String> renamelabel(@RequestParam("labelname") String labelname, @RequestHeader String token,@RequestParam("renamelabelName") String newLabelName) throws TodoException {
+		LOG.info(REQ_ID);
+		LOG.info("renaming a label from note");
+		noteService.renameLabel(labelname, token, newLabelName);
+		LOG.info(REs_ID);
+		LOG.info("renamed a label");
+		return new ResponseEntity<>("renamed a label", HttpStatus.OK);
+	}
 }
