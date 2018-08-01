@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.Id;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
  * @author LAKSHMI PRIYA
@@ -13,14 +15,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *        <b>A POJO class with the user details.</b>
  *        </p>
  */
-@Document
+@Document(indexName = "test1", type = "label")
 public class Label {
+	 private static final Logger logger = LoggerFactory.getLogger(Label.class);
 	@Id
 	private String id;
 	private String labelName;
 	private String note;
 	private String user;
 	
+public Label() {
+	 logger.debug("Log message at DEBUG level from Label constructor");
+	 logger.info("Log message at INFO level from  Label constructor");
+}
 
 	
 

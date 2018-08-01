@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
  * @author LAKSHMI PRIYA
@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *        </p>
  */
 @SuppressWarnings("serial")
-@Document
+@Document(indexName = "bridgelabz", type = "note")
 public class Note implements Serializable {
 
 	@Id
@@ -27,10 +27,9 @@ public class Note implements Serializable {
 	private String createdAt;
 	private String updatedAt;
 	private Date remindMe;
-	private boolean isPin=false;
-	private boolean isArchieve=false;
+	private boolean isPin = false;
+	private boolean isArchieve = false;
 	private List<LabelDTO> label;
-	
 
 	public List<LabelDTO> getLabel() {
 		return label;
@@ -60,8 +59,6 @@ public class Note implements Serializable {
 		return isTrashed;
 	}
 
-	
-
 	public void setTrashed(boolean isTrashed) {
 		this.isTrashed = isTrashed;
 	}
@@ -73,14 +70,6 @@ public class Note implements Serializable {
 	public void setNote(String note) {
 		this.note = note;
 	}
-
-/*	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}*/
 
 	public String getUser() {
 		return user;
