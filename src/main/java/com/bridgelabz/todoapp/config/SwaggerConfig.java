@@ -54,7 +54,7 @@ public class SwaggerConfig {
 	@Bean
 	SecurityConfiguration config()
 	{
-		return new SecurityConfiguration(null,null,null,null,"token",ApiKeyVehicle.HEADER,"token",",");
+		return new SecurityConfiguration(null,null,null,null,"userId",ApiKeyVehicle.HEADER,"userId",",");
 		
 	
 		

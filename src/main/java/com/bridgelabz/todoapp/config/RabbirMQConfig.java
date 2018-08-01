@@ -21,20 +21,20 @@ import org.springframework.context.annotation.Configuration;
  * @author LAKSHMI PRIYA
  * @since DATE:10-07-2018
  *        <p>
- * 		<b>RabbitMQConfiguration helps Producer for sending messages to
+ *        <b>RabbitMQConfiguration helps Producer for sending messages to
  *        rabbitMQ exchange with a routing key.RabbitMQ uses routing key to
  *        determine which queues for routing messages .</b>
  *        </p>
  */
 @Configuration
 public class RabbirMQConfig {
-	@Value("${jsa.rabbitmq.queue}")
+	@Value("")
 	String queueName;
 
-	@Value("${jsa.rabbitmq.exchange}")
+	@Value("")
 	String exchanger;
 
-	@Value("${jsa.rabbitmq.routingkey}")
+	@Value("")
 	private String routingKey;
 
 	@Bean
@@ -72,4 +72,5 @@ public class RabbirMQConfig {
 		factory.setMessageConverter(jsonMessageConverter());
 		return factory;
 	}
+	
 }
