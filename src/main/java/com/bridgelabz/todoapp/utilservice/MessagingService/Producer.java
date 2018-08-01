@@ -20,10 +20,10 @@ public class Producer {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 
-	@Value("${lakshmi.rabbitmq.exchange}")
+	@Value("${todoapp.rabbitmq.exchange}")
 	private String exchange;
 
-	@Value("${lakshmi.rabbitmq.routingkey}")
+	@Value("${todoapp.rabbitmq.routingkey}")
 	private String routingKey;
 
 	public void produceMessage(com.bridgelabz.todoapp.userservice.usermodel.MailDto mailDTO) {

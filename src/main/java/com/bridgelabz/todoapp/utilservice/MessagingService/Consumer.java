@@ -25,7 +25,7 @@ public class Consumer {
 	@Autowired
 	private UserEmailSecurity userEmailSecurity;
 
-	@RabbitListener(queues = "${lakshmi.rabbitmq.queue}", containerFactory = "containerFactory")
+	@RabbitListener(queues = "${todoapp.rabbitmq.queue}", containerFactory = "containerFactory")
 	public void recievedMessage(MailDto mailDTO) throws MessagingException {
 		System.out.println(mailDTO);
 		userEmailSecurity.sendEmail(mailDTO);
